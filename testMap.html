@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>改变地图中心</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html {
+            height: 100%
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body, button, input, select, textarea {
+            font: 12px/16px Verdana, Helvetica, Arial, sans-serif;
+        }
+
+        p {
+            width: 603px;
+            padding-top: 3px;
+            overflow: hidden;
+        }
+
+        .btn {
+            width: 142px;
+        }
+
+        #container {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=IFLBZ-ZVHRI-XDSGG-5NY25-IITSH-4HFXD"></script>
+    <script>
+        var init = function () {
+            var map = new qq.maps.Map(document.getElementById("container"), {
+                center: new qq.maps.LatLng(39.916527, 116.397128),
+                zoom: 13
+            });
+            //设置定时器每隔2秒改变地图中心点位置
+            setTimeout(function () {
+                //经纬度信息
+                map.panTo(new qq.maps.LatLng(39.9, 116.4));
+            }, 2000);
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="container"></div>
+<p>两秒钟后地图会重新设定中心点位置。</p>
+</body>
+</html>
